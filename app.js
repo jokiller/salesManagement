@@ -13,6 +13,13 @@ const scanCodeProduct = require('./src/routes/products/scan_product')
 const updateProduct = require('./src/routes/products/update_product')
 
 
+    // imports Client routes
+const addClient = require('./src/routes/clients/add_client')
+const displayAllClient = require('./src/routes/clients/displayAll_clients')
+const displaySelectedClient = require('./src/routes/clients/displaySelected_client')
+const deleteClient = require('./src/routes/clients/delete_client')
+const updateClient = require('./src/routes/clients/update_client')
+
 const app = express()
 
 // define json use express method 
@@ -33,6 +40,12 @@ app.use('/product', displaySelectedProduct)
 app.use('/product', scanCodeProduct)
 app.use('/product', updateProduct)
 
+
+app.use('/client', addClient)
+app.use('/client', displayAllClient)
+app.use('/client', displaySelectedClient)
+app.use('/client', deleteClient)
+app.use('/client', updateClient)
 
 
 
