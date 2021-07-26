@@ -26,11 +26,10 @@ const productSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
-  expiration_date: {
-    type: Date,
-    required: true,
-    trim: true,
-  }
+  // expiration_date: {
+  //   type: Date,
+  //   default: null,
+  // }
 })
 
 const Product = mongoose.model('product', productSchema)
