@@ -12,13 +12,20 @@ const displaySelectedProduct = require('./src/routes/products/displaySelected_pr
 const scanCodeProduct = require('./src/routes/products/scan_product')
 const updateProduct = require('./src/routes/products/update_product')
 
-
     // imports Client routes
 const addClient = require('./src/routes/clients/add_client')
 const displayAllClient = require('./src/routes/clients/displayAll_clients')
 const displaySelectedClient = require('./src/routes/clients/displaySelected_client')
 const deleteClient = require('./src/routes/clients/delete_client')
 const updateClient = require('./src/routes/clients/update_client')
+
+    // imports Payment routes
+const addPayment = require('./src/routes/payments/add_payment')
+const displayAllPayment = require('./src/routes/payments/displayAll_payment')
+const displaySelectedPayment = require('./src/routes/payments/displaySelected_payment')
+const updatePayment = require('./src/routes/payments/update_payment')
+const deletePayment = require('./src/routes/payments/delete_payment')
+
 
 const app = express()
 
@@ -46,6 +53,13 @@ app.use('/client', displayAllClient)
 app.use('/client', displaySelectedClient)
 app.use('/client', deleteClient)
 app.use('/client', updateClient)
+
+
+app.use('/payment', addPayment)
+app.use('/payment', displayAllPayment)
+app.use('/payment', displaySelectedPayment)
+app.use('/payment', updatePayment)
+app.use('/payment', deletePayment)
 
 
 

@@ -9,8 +9,11 @@ router.put('/update-product', (req, res)=>{
     let editProd = {}
     if (req.body.id) editProd.id = req.body.id
     if(req.body.reference) editProd.reference = req.body.reference
-    if(req.body.product_company) editProd.product_company = req.body.product_company
+    if(req.body.type) editProd.product_company = req.body.type
     if(req.body.category) editProd.category = req.body.category
+    if(req.body.price) editProd.price = req.body.price
+    if(req.body.brand) editProd.brand = req.body.brand
+    if(req.body.expiration_date) editProd.expiration = new Date(req.body.expiration_date)
 
   // const editProd = new Product()
     // finding product to modify its information using id 

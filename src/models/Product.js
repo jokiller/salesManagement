@@ -26,10 +26,14 @@ const productSchema = mongoose.Schema({
     required: true,
     trim: true,
   },
-  // expiration_date: {
-  //   type: Date,
-  //   default: null,
-  // }
+  expiration_date: {
+    type: Date,
+    default: null,
+  },
+  timestamps: {
+    type: Date,
+    default: Date.now()
+  }
 })
 
 const Product = mongoose.model('product', productSchema)

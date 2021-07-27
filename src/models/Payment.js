@@ -14,8 +14,6 @@ const paymentSchema = mongoose.Schema({
     timestamp: {
         type: Date, default: Date.now()
     }
-}, {
-  timestamps: true,
 })
 
 const Payement = mongoose.model('payement', paymentSchema)

@@ -18,7 +18,8 @@ router.post('/add-product', async (req, res) => {
     })
     await Promise.all(promises2)
   })
-  const tempPromises = await Promise.all(promises)
+
+  await Promise.all(promises)
 
   if (found.length !== 0) {
     return res.send(found)  // barcodes have already been used so nothing has been added!
@@ -29,7 +30,7 @@ router.post('/add-product', async (req, res) => {
     const category = _.category
     const brand = _.brand
     const price = _.price
-    // const expiration_date = _.expiration_date
+    const expiration_date = new Date(_.expiration_date)
     const barcodes = _.barcode
 
     const product = new Product({
@@ -38,7 +39,7 @@ router.post('/add-product', async (req, res) => {
       category,
       brand,
       price,
-      // expiration_date
+      expiration_date,
     })
 
     await product.save().then(async(prod) => {
@@ -51,10 +52,12 @@ router.post('/add-product', async (req, res) => {
           console.log(cods)
         }).catch((e) => console.log(e))
       })
+    
+      res.send('all Products have been added')
     }).catch((e) => console.log(e))
   })
 
-  const tempPromises2 = await Promise.all(awaitpromises)
+  await Promise.all(awaitpromises)
   res.send('all Products have been added successfully')
 })
 
